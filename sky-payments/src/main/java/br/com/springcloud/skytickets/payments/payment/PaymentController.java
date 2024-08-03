@@ -12,6 +12,6 @@ public class PaymentController {
 
     @PostMapping("/process")
     public String processPayment(@RequestBody PaymentRequest paymentRequest) {
-        return STR."Payment processed for order ID: \{paymentRequest.getOrderId()}";
+        return "Payment processed for order ID: " + paymentRequest.orderId();
     }
 }

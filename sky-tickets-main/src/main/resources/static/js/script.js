@@ -1,3 +1,20 @@
+
+function load() {
+    loadMovies();
+    loadGreetings();
+}
+
+function loadGreetings() {
+    fetch('/greetings')
+        .then(response => response.json())
+        .then(greeting => {
+            const moviesList = document.getElementById('greeting');
+            moviesList.innerHTML = greeting.message;
+        });
+}
+
+
+
 function loadMovies() {
     fetch('/catalog')
         .then(response => response.json())

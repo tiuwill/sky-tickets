@@ -2,6 +2,8 @@ package br.com.springcloud.skytickets.order.order;
 
 
 
+import br.com.springcloud.skytickets.order.client.PaymentClient;
+import br.com.springcloud.skytickets.order.client.PaymentRequest;
 import br.com.springcloud.skytickets.order.order.repository.OrderRepository;
 import br.com.springcloud.skytickets.order.order.repository.domain.Order;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,13 +22,13 @@ public class OrderController {
     private OrderRepository orderRepository;
 
     @Autowired
-    private RestTemplate restTemplate;
+    private PaymentClient paymentClient;
 
 
     @PostMapping
     public Order createOrder(@RequestBody Order order) {
         PaymentRequest paymentRequest = new PaymentRequest(1L, "card-number", 20.0);
-        restTemplate.postForObject("http://payments/payment/process", paymentRequest,  String.class);
+        paymentClient.processPayment(paymentRequest);
         return orderRepository.save(order);
     }
 }

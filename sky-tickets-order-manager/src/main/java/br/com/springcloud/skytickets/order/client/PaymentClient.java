@@ -1,2 +1,14 @@
-package br.com.springcloud.skytickets.order.client;public class PaymentClient {
+package br.com.springcloud.skytickets.order.client;
+
+import br.com.springcloud.skytickets.order.order.PaymentRequest;
+import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+
+@FeignClient(name = "payments")
+public interface PaymentClient {
+
+    @PostMapping("/payment/process")
+    String processPayment(@RequestBody PaymentRequest paymentRequest);
+
 }

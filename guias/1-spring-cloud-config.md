@@ -1,5 +1,9 @@
 # Configurando Repositório de Configurações Remoto
 
+Este guia deve ser aplicado nos projetos: 
+    Server: **sky-tickets-config-server**
+    Client: **sky-tickets-main**
+
 ## Passo 1: Configurar o Repositório Git
 
 Clone ou crie um repositório Git para armazenar as configurações remotas:

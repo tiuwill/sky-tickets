@@ -1,11 +1,11 @@
-
+var host = "http://localhost:8080"
 function load() {
     loadMovies();
     loadGreetings();
 }
 
 function loadGreetings() {
-    fetch('/greetings')
+    fetch(host+'/greetings')
         .then(response => response.json())
         .then(greeting => {
             const moviesList = document.getElementById('greeting');
@@ -16,7 +16,7 @@ function loadGreetings() {
 
 
 function loadMovies() {
-    fetch('/catalog')
+    fetch(host+'/catalog')
         .then(response => response.json())
         .then(movies => {
             const moviesList = document.getElementById('moviesList');
@@ -52,7 +52,7 @@ function createOrder() {
     const sessionTime = document.getElementById('sessionTime').value;
     const cardNumber = document.getElementById('cardNumber').value;
 
-    fetch('/order', {
+    fetch(host+'/order', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'

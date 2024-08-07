@@ -49,6 +49,11 @@ Adicione as seguintes propriedades ao seu arquivo `application.properties` para 
 spring.application.name=sky-tickets-gateway-server
 spring.main.web-application-type=reactive
 server.port=9090
+
+spring.cloud.gateway.globalcors.add-to-simple-url-handler-mapping=true
+spring.cloud.gateway.globalcors.corsConfigurations.[/**].allowedOrigins=*
+spring.cloud.gateway.globalcors.corsConfigurations.[/**].allowedHeaders=*
+spring.cloud.gateway.globalcors.corsConfigurations.[/**].allowedMethods=*
 ```
 
 ### 5. Crie a Configuração de Rotas na Aplicação

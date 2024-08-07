@@ -20,7 +20,7 @@ Para seguir os guias e a live de Spring Cloud, é necessário que o aluno possua
 Este projeto é o monolito inicial, contendo todas as funcionalidades do sistema, como catálogo, criação de pedidos e mensagem de boas-vindas.
 
 ### Aplicação Order Manager: **sky-tickets-order-manager**
-Este projeto é a segregação em micro serviço da funcionalidade de criação de pedidos. Ele serve como base para demonstrar o funcionamento do Spring Cloud API Gateway para redirecionamento de requisições para o microserviço correto, funcionando como um proxy.
+Este projeto é a segregação em micro serviço da funcionalidade de criação de pedidos. Ele serve como base para demonstrar o funcionamento do Spring Cloud API Gateway no gerenciamento de rotas para microserviços.
 
 ### Aplicação Payments: **sky-payments**
 Esta aplicação é um micro serviço interno da rede que processa o pagamento dos pedidos. É utilizada para demonstrar a comunicação entre micro serviços usando Spring Cloud OpenFeign e os padrões service registry e discovery através da ferramenta Consul.

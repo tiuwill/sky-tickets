@@ -15,8 +15,8 @@ public class PaymentController {
     private static final Logger log = LoggerFactory.getLogger(PaymentController.class);
 
     @PostMapping("/process")
-    public String processPayment(@RequestBody PaymentRequest paymentRequest) {
-        log.info("Processing Payment");
-        return "Payment processed for order ID: " + paymentRequest.orderId();
+    public PaymentRequest processPayment(@RequestBody PaymentRequest paymentRequest) {
+        log.info("Payment processed for order ID: " + paymentRequest.orderId());
+        return paymentRequest;
     }
 }

@@ -1,4 +1,4 @@
-var host = "http://localhost:8080"
+var host = "http://localhost:9090"
 function load() {
     loadMovies();
     loadGreetings();

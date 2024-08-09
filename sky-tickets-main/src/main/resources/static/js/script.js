@@ -52,7 +52,7 @@ function createOrder() {
     const sessionTime = document.getElementById('sessionTime').value;
     const cardNumber = document.getElementById('cardNumber').value;
 
-    fetch(host+'/order', {
+    fetch(host + '/order', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -63,10 +63,22 @@ function createOrder() {
             sessionTime: sessionTime,
             cardNumber: cardNumber
         })
-    }).then(response => response.json())
+    })
+    .then(response => {
+        if (!response.ok) {
+            return response.json().then(errorData => {
+                throw new Error(errorData.message || 'Erro ao criar o pedido.');
+            });
+        }
+        return response.json();
+    })
     .then(order => {
         alert('Pedido criado com sucesso!');
         document.getElementById('orderForm').reset();
         document.getElementById('orderForm').style.display = 'none';
+    })
+    .catch(error => {
+        alert(`Erro: ${error.message}`);
     });
 }
+
